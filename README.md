@@ -1,24 +1,23 @@
-# README
+# DOGE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+App to fetch your favourite doge images (with Turbo)
 
-Things you may want to cover:
+### Run
 
-* Ruby version
+in first terminal
+```
+rails s
+```
 
-* System dependencies
+in second terminal:
+```
+bin/dev
+```
 
-* Configuration
+If you prefer to have these logs separated. If not, modify `Procfile.dev` and run only `bin/dev`
 
-* Database creation
+### Test
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+rspec spec
+```
