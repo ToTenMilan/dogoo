@@ -1,7 +1,7 @@
 class Searches::DogsController < ApplicationController
   def index
     @breed = params[:breed]
-# binding.pry
+
     if @breed.present?
       data = DogApi.random_dog_image_by_breed(@breed)
 
