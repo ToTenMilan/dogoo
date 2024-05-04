@@ -1,9 +1,11 @@
-<% if @breed && @image_url %>
-  <% if @status == 'success' %>
-    <h1><%= @breed %></h1>
-  <% else %>
-    <div>We don't have <span class='font-bold'><%= @breed %></span> images</div>
-  <% end %>
+<%= turbo_frame_tag 'breed_image_result' do %>
+  <% if @breed && @image_url %>
+    <% if @status == 'success' %>
+      <h1><%= @breed %></h1>
+    <% else %>
+      <div>We don't have <span class='font-bold'><%= @breed %></span> images</div>
+    <% end %>
 
-  <p><%= image_tag(@image_url) %></p>
+    <p><%= image_tag(@image_url) %></p>
+  <% end %>
 <% end %>

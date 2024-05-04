@@ -1,4 +1,4 @@
-<%= form_with url: searches_dogs_path, method: :get, data: { turbo_stream: true } do |form| %>
+<%= form_with url: root_path, method: :get, data: { turbo_stream: true } do |form| %>
   <%= form.label :breed, "Your favourite breed" %>
   <%= form.text_field :breed, required: true %>
   <%= form.submit 'Submit', class: 'btn' %>
