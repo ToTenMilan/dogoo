@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "searches/dogs#index"
   namespace :searches do
     resources :dogs, only: [:index]
   end
