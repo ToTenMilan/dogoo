@@ -1,8 +1,18 @@
-<%= form_with url: searches_dogs_path, method: :get, data: { turbo: false }, class: 'my-search-form' do %>
-  <%= label_tag :breed, "Your favourite breed" %>
-  <%= text_field_tag :breed, nil, required: true %>
-  <%= submit_tag 'Submit', class: 'btn' %>
-<% end %>
+<%
+=begin%>
+ <%= turbo_frame_tag 'search_results' do %>
+<%
+=end%>
+  <%= form_with url: searches_dogs_path, method: :post, data: { turbo: true }, html: { class: 'my-search-form' } do |form| %>
+    <%= form.label :breed, "Your favourite breed" %>
+    <%= form.text_field :breed, required: true %>
+    <%= form.submit 'Submit', class: 'btn' %>
+  <% end %>
+<%
+=begin%>
+ <% end %>
+<%
+=end%>
 
 <%= turbo_frame_tag 'breed_image_result' do %>
   <% if @breed && @image_url %>

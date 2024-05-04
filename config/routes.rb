@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :searches do
-    resources :dogs, only: [:index, :show]
+    resources :dogs, only: [:index]
+    post :dogs, to: "dogs#index"
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
