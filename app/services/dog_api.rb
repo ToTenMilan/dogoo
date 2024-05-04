@@ -26,6 +26,6 @@ class DogApi
       result = breed
     end
 
-    result
+    result.downcase
   end
 end
