@@ -7,6 +7,9 @@ class Searches::DogsController < ApplicationController
     @image_url = data[:image_url]
     @status = data[:status]
 
-    render :index
+    respond_to do |format|
+      format.html { render :index }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace('breed_image_result', partial: 'searches_dog_result' ) }
+    end
   end
 end
