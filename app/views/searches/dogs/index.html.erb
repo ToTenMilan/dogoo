@@ -1,27 +1,7 @@
-<%
-=begin%>
- <%= turbo_frame_tag 'search_results' do %>
-<%
-=end%>
-  <%= form_with url: searches_dogs_path, method: :post, data: { turbo: true }, html: { class: 'my-search-form' } do |form| %>
-    <%= form.label :breed, "Your favourite breed" %>
-    <%= form.text_field :breed, required: true %>
-    <%= form.submit 'Submit', class: 'btn' %>
-  <% end %>
-<%
-=begin%>
- <% end %>
-<%
-=end%>
-
-<%= turbo_frame_tag 'breed_image_result' do %>
-  <% if @breed && @image_url %>
-    <% if @status == 'success' %>
-      <h1><%= @breed %></h1>
-    <% else %>
-      <h1>Ohh, little maltese is sad becuse we don't have <%= @breed %> images in our database</h1>
-    <% end %>
-
-    <p><%= image_tag(@image_url) %></p>
-  <% end %>
+<%= form_with url: searches_dogs_path, method: :post, data: { turbo: true }, html: { class: 'my-search-form' } do |form| %>
+  <%= form.label :breed, "Your favourite breed" %>
+  <%= form.text_field :breed, required: true %>
+  <%= form.submit 'Submit', class: 'btn' %>
 <% end %>
+
+<%= turbo_frame_tag 'breed_image_result' %>

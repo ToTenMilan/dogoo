@@ -2,7 +2,7 @@
   <% if @status == 'success' %>
     <h1><%= @breed %></h1>
   <% else %>
-    <h1>Ohh, little maltese is sad because we don't have <%= @breed %> images in our database</h1>
+    <div>We don't have <span class='font-bold'><%= @breed %></span> images</div>
   <% end %>
 
   <p><%= image_tag(@image_url) %></p>
