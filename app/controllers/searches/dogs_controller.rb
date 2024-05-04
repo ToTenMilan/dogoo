@@ -1,9 +1,10 @@
 class Searches::DogsController < ApplicationController
   def index
     @breed = params[:breed]
-    dogs_fetcher = DogApiClient.new(@breed)
-    @image_url = dogs_fetcher.image_url
-    @status = dogs_fetcher.status
+    data = ::DogApi::FetchDogImageByBreed.new(@breed)
+
+    @image_url = data.image_url
+    @status = data.status
 
     render :index
   end
