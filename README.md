@@ -2,6 +2,10 @@
 
 App to fetch your favourite doge images (with Turbo)
 
+### Play live at
+
+#### https://dogoo.fly.dev/
+
 ### Run
 
 in first terminal
