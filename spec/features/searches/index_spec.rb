@@ -20,15 +20,21 @@ end
 
 RSpec.feature 'Searches::DogsController', type: :feature, js: true do
   context 'when the breed is found' do
-    scenario 'searches dogs by breed' do
+    scenario 'searches dogs by breed twice' do
       allow(DogApi).to receive(:random_dog_image_by_breed).and_return(
         DogApiMock.random_dog_image
       )
-      visit searches_dogs_path
+      visit root_path
       fill_in 'breed', with: 'bulldog'
       click_button 'Submit'
 
       expect(page).to have_content('bulldog')
+      expect(page).to have_css('img')
+
+      fill_in 'breed', with: 'rottweiler'
+      click_button 'Submit'
+
+      expect(page).to have_content('rottweiler')
       expect(page).to have_css('img')
     end
   end
@@ -38,7 +44,7 @@ RSpec.feature 'Searches::DogsController', type: :feature, js: true do
       allow(DogApi).to receive(:random_dog_image_by_breed).and_return(
         DogApiMock.not_found
       )
-      visit searches_dogs_path
+      visit root_path
       fill_in 'breed', with: 'belldog'
       click_button 'Submit'
 
