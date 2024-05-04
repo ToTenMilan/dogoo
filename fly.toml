@@ -9,9 +9,9 @@ console_command = '/rails/bin/rails console'
 
 [build]
 
-[[mounts]]
-  source = 'data'
-  destination = '/data'
+[mounts]
+  source="dogoo_db"
+  destination="/mnt/dogoo_db"
 
 [http_service]
   internal_port = 3000
