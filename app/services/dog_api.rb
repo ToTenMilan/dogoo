@@ -1,6 +1,8 @@
 class DogApi
   def self.random_dog_image_by_breed(breed)
-    url = URI.parse("https://dog.ceo/api/breed/#{CGI.escape(breed.underscore)}/images/random")
+    parsed_breed = parse_breed(breed)
+
+    url = URI.parse("https://dog.ceo/api/breed/#{parsed_breed}/images/random")
     response = Net::HTTP.get_response(url)
     data = {}
 
@@ -13,5 +15,17 @@ class DogApi
     end
 
     data
+  end
+
+  def self.parse_breed(breed)
+    result = ''
+
+    if breed.split(' ').size > 1
+      result = breed.split(' ').reverse.each { |word| CGI.escape(word) }.join('/')
+    else
+      result = breed
+    end
+
+    result
   end
 end
